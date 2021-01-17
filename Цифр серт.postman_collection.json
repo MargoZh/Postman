@@ -1,0 +1,398 @@
+{
+	"info": {
+		"_postman_id": "a6b96eef-5bff-4ba3-a90a-b93e0aca19b8",
+		"name": "Цифр серт",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "ya test",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": ""
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get users",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "5010f695-30ea-4667-ab97-48db34e0df14",
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"",
+							"pm.test(\"Body matches string\", function () {",
+							"    pm.expect(pm.response.text()).to.include(\"Ervin Howell\");",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/users/",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"users",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get comments",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "a36eb956-6371-4c16-887d-7e8c7ce65d85",
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/comments/",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"comments",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get posts",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "1f6ccc05-8c13-40c8-af9a-57eab36889b5",
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"",
+							"pm.test(\"Body matches string\", function () {",
+							"    pm.expect(pm.response.text()).to.include(\"Ervin Howell\");",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/post/",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"post",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "add user",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "bcb43875-eca3-4fc7-8754-1ae6259b50a0",
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(201);",
+							"});",
+							"",
+							"pm.test(\"Req=Resp\", function (){",
+							"    let responseData = pm.response.json();",
+							"    let requestData = JSON.parse (pm.request.body.raw);",
+							"    delete responseData.id;",
+							"    pm.expect(responseData).to.egl(requestData);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n        \n        \"name\": \"Margarita Zhbanova\",\n        \"username\": \"Margo\",\n        \"email\": \"margarita@amail.ru\",\n        \"address\": {\n            \"street\": \"Balu Light\",\n            \"suite\": \"Apt. 123\",\n            \"city\": \"Vladivostok\",\n            \"zipcode\": \"92998\",\n            \"geo\": {\n                \"lat\": \"37.3159\",\n                \"lng\": \"-81.1496\"\n            }\n        },\n        \"phone\": \"+79623349838\",\n        \"website\": \"1hildegard.org\",\n        \"company\": {\n            \"name\": \"Russia\",\n            \"catchPhrase\": \"1Multi-layered client-server neural-net\",\n            \"bs\": \"1harness real-time e-markets\"\n        }\n    \n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/users/",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"users",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "add comments",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "33b7f3ec-ca9d-4530-97a7-b9174985c2cc",
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(201);",
+							"});",
+							"",
+							"pm.test(\"Req=Resp\", function (){",
+							"    let responseData = pm.response.json();",
+							"    let requestData = JSON.parse (pm.request.body.raw);",
+							"    delete responseData.id;",
+							"    pm.expect(responseData).to.egl(requestData);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n        \"postId\": 101,\n        \"name\": \"Александр Иосса\",\n        \"email\": \"3333Eliseo@gardner.biz\",\n        \"body\": \"Лучший преподаватель!\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/comments/",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"comments",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "add posts",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "05ac53d2-7c7f-4be8-ba52-0e5cef1f2322",
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(201);",
+							"});",
+							"",
+							"pm.test(\"Req=Resp\", function (){",
+							"    let responseData = pm.response.json();",
+							"    let requestData = JSON.parse (pm.request.body.raw);",
+							"    delete responseData.id;",
+							"    pm.expect(responseData).to.egl(requestData);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n        \"userId\": 11,\n        \"title\": \"Тестировщик – самый простой вход в программирование\",\n        \"body\": \"Практические занятия 3.2\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/posts/",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"posts",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "delete user",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/users/11",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"users",
+						"11"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "delete comments",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/comments/501",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"comments",
+						"501"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "delete posts",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/posts/101",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"posts",
+						"101"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "soap req",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "423911cf-1f3d-441a-a9fb-2ebb22b25c18",
+						"exec": [
+							"pm.test(\"Body matches string\", function () {",
+							"    pm.expect(pm.response.text()).to.include(\"Ukraine\");",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"disabledSystemHeaders": {
+					"content-type": true
+				}
+			},
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "text/xml",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "\t<soap:Envelope xmlns:soap=\"http://schemas.xmlsoap.org/soap/envelope/\">\n\t  <soap:Body>\n\t    <CountryName xmlns=\"http://www.oorsprong.org/websamples.countryinfo\">\n\t      <sCountryISOCode>UA</sCountryISOCode>\n\t    </CountryName>\n\t  </soap:Body>\n\t</soap:Envelope>\n",
+					"options": {
+						"raw": {
+							"language": "xml"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://webservices.oorsprong.org/websamples.countryinfo/CountryInfoService.wso",
+					"protocol": "http",
+					"host": [
+						"webservices",
+						"oorsprong",
+						"org"
+					],
+					"path": [
+						"websamples.countryinfo",
+						"CountryInfoService.wso"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"protocolProfileBehavior": {}
+}
